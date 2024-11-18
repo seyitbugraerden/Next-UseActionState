@@ -5,7 +5,7 @@ import { user } from "@/store/db";
 import { useActionState } from "react";
 
 export default function Home() {
-  const [error, submitAction, isPending] = useActionState(ForExampleDemo, user);
+  const [error, submitAction, isPending] = useActionState(ForExampleDemo, null);
 
   return (
     <form
