@@ -1,10 +1,11 @@
 "use client";
 
 import { ForExampleDemo } from "@/action/action";
+import { user } from "@/store/db";
 import { useActionState } from "react";
 
 export default function Home() {
-  const [error, submitAction, isPending] = useActionState(ForExampleDemo, null);
+  const [error, submitAction, isPending] = useActionState(ForExampleDemo, user);
 
   return (
     <form
@@ -19,6 +20,7 @@ export default function Home() {
           Your email
         </label>
         <input
+          defaultValue={user.email}
           type="email"
           name="email"
           id="email"

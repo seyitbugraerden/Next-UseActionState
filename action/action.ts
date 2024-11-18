@@ -9,7 +9,9 @@ export const ForExampleDemo = async (
   const email = formData.get("email") as string | null;
   const password = formData.get("password") as string | null;
   const repeatPassword = formData.get("repeat-password") as string | null;
-  const terms = formData.get("terms") === "on";
+  const terms = formData.get("terms") === "on"; // ensures the checkbox state is correctly interpreted
+
+  // Validation
   if (!email || !password || !repeatPassword || terms === null) {
     console.error("Please fill out all fields.");
     return;
@@ -27,5 +29,5 @@ export const ForExampleDemo = async (
     terms,
   };
 
-  console.log(userInfo);
+  console.log(userInfo); // You can process this further, like sending it to an API
 };
