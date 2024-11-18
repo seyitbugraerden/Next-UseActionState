@@ -1,11 +1,6 @@
 "use server";
 
-interface UserInfo {
-  email: string | null;
-  password: string | null;
-  repeatPassword: string | null;
-  terms: boolean | null;
-}
+import { UserInfo } from "@/types/types";
 
 export const ForExampleDemo = async (
   prevState: void | null,
@@ -15,7 +10,6 @@ export const ForExampleDemo = async (
   const password = formData.get("password") as string | null;
   const repeatPassword = formData.get("repeat-password") as string | null;
   const terms = formData.get("terms") === "on";
-
   if (!email || !password || !repeatPassword || terms === null) {
     console.error("Please fill out all fields.");
     return;
@@ -32,5 +26,6 @@ export const ForExampleDemo = async (
     repeatPassword,
     terms,
   };
+
   console.log(userInfo);
 };
